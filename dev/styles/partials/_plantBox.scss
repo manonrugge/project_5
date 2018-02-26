@@ -1,0 +1,46 @@
+
+.slider {
+    width: 100%;
+}
+
+
+.life-cycle {
+    display: flex;
+    flex-direction: row;
+    width: 33.33%;
+    .icon-heart,
+    .icon-skull {
+        padding: 3px;
+        width: 100%;
+    }
+}
+
+.note-text {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+.plantsContainer {
+    background-color: powderblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.plantCard {
+    width: 33.33%;
+    border: 1px solid pink;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
