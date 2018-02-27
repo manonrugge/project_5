@@ -23,9 +23,23 @@ body {
     box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
     text-transform: uppercase;
     nav {
+        width: 12%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media (max-width: 960px){
+        width: 20%;
+        }
+
+        @media (max-width: 768px){
+            width: 20%;
+        }
+
+        @media (max-width: 480px) {
+            width: 20%;
+        }
+
         h5 {
             margin: 0 10px;
             text-decoration: none;
@@ -73,6 +87,18 @@ body {
     padding: 10px;
     background-color: white;
     box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
+
+    @media (max-width: 960px){
+        width: 30%;
+    }
+
+    @media (max-width: 768px){
+        width: 40%;
+    }
+
+    @media (max-width: 480px) {
+        width: 80%;
+    }
 }
 
 .overlay.show,
