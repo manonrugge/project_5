@@ -14,7 +14,6 @@ var config = {
 firebase.initializeApp(config);
 
 
-// this class App looks like an object but it is not, it is a class. 
 class App extends React.Component {
     constructor() {
         super();
@@ -23,84 +22,78 @@ class App extends React.Component {
         } 
         this.showPopUp = this.showPopUp.bind(this);
         this.addPlant = this.addPlant.bind(this);
-        this.lifecycle = this.lifecycle.bind(this);
+        // this.lifecycle = this.lifecycle.bind(this);
     }
 
 
     componentDidMount() {
         const dbref = firebase.database().ref('/newPlant');
-        console.log(dbref)
 
         dbref.on('value', (snapshot) => {
-            console.log(snapshot.val());
 
             const data = snapshot.val();
             const fbstate = [];
             for (let key in data) {
-                console.log(key);
 
                 const newVal = data[key];
                 newVal["fbKey"] = key;
                 fbstate.push(newVal);
             }
-
             this.setState({
                 plants: fbstate
             });
         });
     }
 
-
     showPopUp (event) {
         event.preventDefault();
+
         this.popUp.classList.toggle("show");
+        this.overlay.classList.toggle("show");
     }
 
     addPlant (event) {
         event.preventDefault();
-        console.log(this)
 
         const plant = {
-            plantname: this.plantName.value,
+            plantname: this.plantname.value,
             sunlight: this.sunlight.value,
             water: this.water.value,
             notes: this.notetext.value,
-            lifecycle: this.lifecycleValue.value
+            // lifecycle: this.lifecycleValue.value
         };
 
         const dbref = firebase.database().ref('/newPlant');
-
         dbref.push(plant);
 
-        this.plantName.value = '';
+        this.plantname.value = '';
         this.sunlight.value = 0;
         this.water.value = 0;
         this.notetext.value = '';
-        this.lifecycleValue.value = 'good'
+        // this.lifecycleValue.value = 'good';
         this.showPopUp(event);
     }
 
-    lifecycle(event) {
-        event.preventDefault();
+    // lifecycle(event) {
+    //     event.preventDefault();
         
-        const newValue = event.target.value;
-        document.getElementById("lifecycle").value = newValue;
-
-    }
-
-
+    //     const newValue = event.target.value;
+    //     document.getElementById("lifecycle").value = newValue;
+    // }
 
     render() {
-        console.log(this.state.plants)
-
         return (
-            <div>
+
+            <div className="container">
+
                 <header className="mainHeader">
-                    <h1>My Plants</h1>
+                    <h1>House Of Plants</h1>
                     <nav>
-                        <a href="" onClick={this.showPopUp}>Add New Plant</a>
+                        <button className="add" onClick={this.showPopUp}><img src="./dev/images/plus.svg" alt="illustration of a plant"/></button>
+                        <h5>New Plant</h5>
                     </nav>
                 </header>
+
                 <section className="plants"> 
                     {
                         this.state.plants.map((plant,index) => {
@@ -110,52 +103,55 @@ class App extends React.Component {
                         }).reverse()
                     }
                 </section>
-
-                <section className="popUp" ref={ref => this.popUp = ref}>
                 
-                    <form onSubmit={this.addPlant}> 
-                        <div className="close-btn" onClick={this.showPopUp}>
-                            <i className="far fa-times-circle"></i>
-                        </div>
-                        <img src="./dev/images/placeholder.jpg" alt="image of a plant" />
+                <div className="overlay" ref={ref => this.overlay = ref}>
 
-                        <label htmlFor="plant-name"></label>
-                        <input type="text" name="plant-name" id="plantname" ref={ref => this.plantName = ref }/>
+                    <section className="popUp" ref={ref => this.popUp = ref}>
 
-                        <div className="range-sunlight">
-                            <label htmlFor="sunlight"></label>
-                            <input type="range" name="sunlight" id="sunlight" ref={ref => this.sunlight = ref } min="1" max="3" step="1" className="slider" />
-                        </div>
+                            <form onSubmit={this.addPlant}> 
+                                <div className="close-btn" onClick={this.showPopUp}>
+                                    <i className="far fa-times-circle"></i>
+                                </div>
+                                <img src="./dev/images/placeholder-illustration.png" alt="image of a plant" />
 
-                        <div className="range-water">
-                            <label htmlFor="water"></label>
-                            <input type="range" name="water" id="water" ref={ref => this.water = ref } min="1" max="3" step="1" className="slider" />
-                        </div>
+                                <label htmlFor="plant-name"></label>
+                                <input type="text" name="plant-name" id="plantname" placeholder="Name"ref={ref => this.plantname = ref }/>
 
-                        <div>
-                            <label htmlFor="note-text"></label>
-                            <textarea name="note-text" id="notetext" className="note-text" ref={ref => this.notetext = ref} ></textarea>
-                        </div>
+                                <div className="range-sunlight">
+                                    <label htmlFor="sunlight"></label>
+                                    <input type="range" name="sunlight" id="sunlight" ref={ref => this.sunlight = ref } min="1" max="3" step="1" className="slider" />
+                                </div>
 
-                        <div className="life-cycle">
-                            <button className="icon-heart" value="good" onClick={this.lifecycle}>
-                                <img src="./dev/images/003-like.svg" alt="icon heart" />
-                            </button>
-                            <button className="icon-skull" value="bad" onClick={this.lifecycle}>
-                                <img src="./dev/images/004-skull.svg" alt="icon skull" />
-                            </button>
-                            <input type="hidden" value="good" id="lifecycle" ref={ref => this.lifecycleValue = ref}/>
-                        </div>
+                                <div className="range-water">
+                                    <label htmlFor="water"></label>
+                                    <input type="range" name="water" id="water" ref={ref => this.water = ref } min="1" max="3" step="1" className="slider" />
+                                </div>
 
-                        <input type="submit" value="Add New Plant"/>
+                                <div>
+                                    <label htmlFor="note-text"></label>
+                                    <textarea name="note-text" id="notetext" className="note-text" placeholder="Notes:" ref={ref => this.notetext = ref} ></textarea>
+                                </div>
 
-                    
-                    </form>
-                </section>
+                                {/* stretch goal: these icons work and are pushed to firebase but need to connect them to an API */}
+
+                                {/* <div className="life-cycle">
+                                    <button className="icon-heart" value="good" onClick={this.lifecycle}>
+                                        <img src="./dev/images/003-like.svg" alt="icon heart" />
+                                    </button>
+                                    <button className="icon-skull" value="bad" onClick={this.lifecycle}>
+                                        <img src="./dev/images/004-skull.svg" alt="icon skull" />
+                                    </button>
+                                    <input type="hidden" value="good" id="lifecycle" ref={ref => this.lifecycleValue = ref}/>
+                                </div> */}
+
+                            <input className="fbSave" type="submit" value="Add"/>
+                            </form>
+
+                    </section>
+                </div>
             </div>
         )
     }
-
 }
 
 
