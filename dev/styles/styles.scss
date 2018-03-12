@@ -5,18 +5,18 @@ $primary: #66CDAA;
 
 body {
     background-color: $primary;
-    min-height: 100vh;
+    height: 100vh;
     font-family: 'Open Sans Condensed', sans-serif;
     letter-spacing: 2%;
     line-height: 25px;
     img {
         width: 100%;
     }
+    a {
+        text-decoration: none;
+    }
 }
 
-a {
-    text-decoration: none;
-}
 
 // Main Header
 
@@ -28,7 +28,8 @@ a {
     background: white;
     box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
     text-transform: uppercase;
-    @media (max-width: 660px){
+
+    @media (max-width: 660px) {
         align-items: center;
         flex-direction: column;
         padding: 0px 0px 10px 0px;
@@ -55,23 +56,6 @@ a {
                 border-bottom: 2px solid $primary;
             }
         }
-
-        // @media (max-width: 960px){
-        // width: 20%;
-        // }
-
-        // @media (max-width: 768px){
-        //     width: 20%;
-        // }
-
-        // @media (max-width: 480px) {
-        //     width: 20%;
-        // }
-
-        // h5 {
-        //     margin: 0 10px;
-        //     text-decoration: none;
-        // }
     }
 }
 
@@ -156,18 +140,13 @@ span {
     }
 }
 
-
-
-
 .overlay.show,
 .popUp.show  {
     display: block;
     position: fixed;
 }
 
-
-// modals
-
+// modals styling
 
 .modal.show,
 .overlay.show {
@@ -182,7 +161,6 @@ span {
 .SignInModal.show {
     display: block;
 }
-
 
 .modal {
     position: absolute;
@@ -208,7 +186,6 @@ span {
     }
 }
 
-
 #inputField {
     margin: 20px 0px;
     width: 100%;
@@ -218,6 +195,4 @@ span {
     font-size: 20px;
     font-weight: bold;
 }
-.close-btn svg {
-    text-align: right;
-}
+

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default class PlantCard extends React.Component {
     constructor(props) {
         super(props);
@@ -89,7 +88,7 @@ export default class PlantCard extends React.Component {
         
                     </form>
                 </div>
-            </div >
+            </div>
         )
     }
 }

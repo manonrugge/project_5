@@ -1,11 +1,11 @@
-// styling plant cards
+// styling the cards
 
 .plants {
-    
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
+
     @media (max-width: 600px) {
         display: flex;
         flex-direction: column;
@@ -34,19 +34,23 @@
     margin: 20px;
     padding: 10px;
     background-color: white;
-    border-radius: 5px;   
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);   
 }
 
 .plantCard:hover {
-        transform: scale(1.05);
-        transition: all .5s ease-in-out;
-        box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
-    }
+    transform: scale(1.05);
+    transition: all .5s ease-in-out;
+    // box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 
 // styling elements on the card
 
 .illustration {
-    padding: 30px;
+    width: 90%;
+    padding: 30px 10px 5px 30px;
 }
 
 #plantname {
@@ -170,11 +174,11 @@
 }
 
 .btn:hover {
-        background-color: white;
-        color: $primary;
-        border: 2px solid $primary;
+    background-color: white;
+    color: $primary;
+    border: 2px solid $primary;
         
-    }
+}
 
 
 

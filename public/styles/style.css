@@ -159,15 +159,18 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   margin: 20px;
   padding: 10px;
   background-color: white;
-  border-radius: 5px; }
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 .plantCard:hover {
   transform: scale(1.05);
   transition: all .5s ease-in-out;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
 .illustration {
-  padding: 30px; }
+  width: 90%;
+  padding: 30px 10px 5px 30px; }
 
 #plantname {
   margin: 20px 0px;
@@ -267,15 +270,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 body {
   background-color: #66CDAA;
-  min-height: 100vh;
+  height: 100vh;
   font-family: 'Open Sans Condensed', sans-serif;
   letter-spacing: 2%;
   line-height: 25px; }
   body img {
     width: 100%; }
-
-a {
-  text-decoration: none; }
+  body a {
+    text-decoration: none; }
 
 .mainHeader {
   padding: 0 50px;
@@ -417,6 +419,3 @@ span {
   border-bottom: 2px solid #66CDAA;
   font-size: 20px;
   font-weight: bold; }
-
-.close-btn svg {
-  text-align: right; }

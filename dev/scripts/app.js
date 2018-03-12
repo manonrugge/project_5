@@ -31,7 +31,6 @@ class App extends React.Component {
         // this.lifecycle = this.lifecycle.bind(this);
     }
 
-
     componentDidMount() {
 
         firebase.auth().onAuthStateChanged( (user) => {
@@ -61,7 +60,6 @@ class App extends React.Component {
                 })
             }
         })
-
     }
 
     showCreate(event) {
@@ -101,7 +99,6 @@ class App extends React.Component {
 
     SignOut(event) {
         firebase.auth().signOut();
-
     }
 
     signInUser (event) {
@@ -122,10 +119,7 @@ class App extends React.Component {
     showPopUp(event) {
         event.preventDefault();
 
-        console.log(event);
-
         this.popUp.classList.toggle("show");
-        console.log(this.popUp)
         this.overlay.classList.toggle("show");
     }
 
@@ -171,14 +165,16 @@ class App extends React.Component {
         }
         else {
             return (
+
             <div className="signin-background">
                 <div className="welcome">
                     <h2>Welcome to <span>House of Plants!</span></h2>
-                        <p> <span>Why</span> This app is very useful for when you see a plant you like, lost a plant’s name card, or you straight up forgot what plant you bought and don’t know how to take care of it.</p>
-                        <p><span>How</span> Simply create an account and add every single plant in your house or office. So you can keep track of your plants and their progress!</p>
+                        <p> <span>Why</span> This app is useful for when you see a plant you like, lost a plant’s name card, or you straight up forgot what plant you bought and don’t know how to take care of it.</p>
+                        <p><span>How</span> Simply create an account and add every single plant in your house or office. You can keep track of your plants and their progress!</p>
                 
                 </div>
             </div>
+
             );
         }
     }
@@ -208,62 +204,63 @@ class App extends React.Component {
                         
                     </nav>
                 </header>
+
                 <div className="overlay" ref={ref => this.overlay = ref}></div>
 
                 <section className="plants"> 
                     {this.renderPlants()}
                 </section>
-                
+            
                 <div className="overlay" ref={ref => this.overlay = ref}>
 
-                    <section className="popUp" ref={ref => this.popUp = ref}>
+                <section className="popUp" ref={ref => this.popUp = ref}>
+                    <form onSubmit={this.addPlant}> 
+                        <div className="close-btn" onClick={this.showPopUp}>
+                            <i className="far fa-times-circle"></i>
+                        </div>
+                        <img src="./dev/images/placeholder-illustration.png" alt="image of a plant" />
 
-                            <form onSubmit={this.addPlant}> 
-                                <div className="close-btn" onClick={this.showPopUp}>
-                                    <i className="far fa-times-circle"></i>
-                                </div>
-                                <img src="./dev/images/placeholder-illustration.png" alt="image of a plant" />
+                        <label htmlFor="plant-name"></label>
+                        <input type="text" name="plant-name" id="plantname" placeholder="Name"ref={ref => this.plantname = ref }/>
 
-                                <label htmlFor="plant-name"></label>
-                                <input type="text" name="plant-name" id="plantname" placeholder="Name"ref={ref => this.plantname = ref }/>
+                        <div className="range-sunlight">
+                            <label htmlFor="sunlight"></label>
+                            <input type="range" name="sunlight" id="sunlight" ref={ref => this.sunlight = ref } min="1" max="3" step="1" className="slider" />
+                        </div>
 
-                                <div className="range-sunlight">
-                                    <label htmlFor="sunlight"></label>
-                                    <input type="range" name="sunlight" id="sunlight" ref={ref => this.sunlight = ref } min="1" max="3" step="1" className="slider" />
-                                </div>
+                        <div className="range-water">
+                            <label htmlFor="water"></label>
+                            <input type="range" name="water" id="water" ref={ref => this.water = ref } min="1" max="3" step="1" className="slider" />
+                        </div>
 
-                                <div className="range-water">
-                                    <label htmlFor="water"></label>
-                                    <input type="range" name="water" id="water" ref={ref => this.water = ref } min="1" max="3" step="1" className="slider" />
-                                </div>
+                        <div>
+                            <label htmlFor="note-text"></label>
+                            <textarea name="note-text" id="notetext" className="note-text" placeholder="Notes:" ref={ref => this.notetext = ref} ></textarea>
+                        </div>
 
-                                <div>
-                                    <label htmlFor="note-text"></label>
-                                    <textarea name="note-text" id="notetext" className="note-text" placeholder="Notes:" ref={ref => this.notetext = ref} ></textarea>
-                                </div>
+                        {/* stretch goal: these icons work and are pushed to firebase but need to connect them to an API */}
 
-                                {/* stretch goal: these icons work and are pushed to firebase but need to connect them to an API */}
+                        {/* <div className="life-cycle">
+                            <button className="icon-heart" value="good" onClick={this.lifecycle}>
+                                <img src="./dev/images/003-like.svg" alt="icon heart" />
+                            </button>
+                            <button className="icon-skull" value="bad" onClick={this.lifecycle}>
+                                <img src="./dev/images/004-skull.svg" alt="icon skull" />
+                            </button>
+                            <input type="hidden" value="good" id="lifecycle" ref={ref => this.lifecycleValue = ref}/>
+                        </div> */}
 
-                                {/* <div className="life-cycle">
-                                    <button className="icon-heart" value="good" onClick={this.lifecycle}>
-                                        <img src="./dev/images/003-like.svg" alt="icon heart" />
-                                    </button>
-                                    <button className="icon-skull" value="bad" onClick={this.lifecycle}>
-                                        <img src="./dev/images/004-skull.svg" alt="icon skull" />
-                                    </button>
-                                    <input type="hidden" value="good" id="lifecycle" ref={ref => this.lifecycleValue = ref}/>
-                                </div> */}
-
-                            <input className="fbSave" type="submit" value="Add"/>
-                            </form>
-                    </section>
-
+                        <input className="fbSave btn" type="submit" value="Add"/>
+                    </form>
+                </section>
+                
+                <section>
                     <div className="SignInModal modal" ref={ref => this.signInModal = ref}> 
                         <div className="close-btn" onClick={this.showSignIn}>
                             <i className="far fa-times-circle"></i>
                         </div>
                         <form onSubmit={this.signInUser}>
-                             <h2>Welcome Back!</h2>
+                            <h2>Welcome Back!</h2>
                             <div>
                                 <label htmlFor="email"></label>
                                 <input placeholder="Email:" id="inputField" type="text" name="email" ref={ref => this.userEmail = ref} />
@@ -277,9 +274,9 @@ class App extends React.Component {
                             </div>
                         </form>
                     </div>
+                </section>
 
-
-
+                <section>
                     <div className="createUserModal modal" ref={ref => this.createUserModal = ref}>
                         <div className="close-btn" onClick={this.showCreate}>
                             <i className="far fa-times-circle"></i>
@@ -302,8 +299,10 @@ class App extends React.Component {
                             </div>
                         </form>
                     </div>
-                </div>
+                </section>
+
             </div>
+        </div>
         )
     }
 }
