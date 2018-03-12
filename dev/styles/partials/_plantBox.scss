@@ -1,12 +1,12 @@
 // styling plant cards
 
 .plants {
+    
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -16,13 +16,17 @@
 
 .plantsContainer {
     width: 25%;
-    
-    @media (max-width: 768px){
+
+    @media (max-width: 1090px){
+        width: 33.33%;
+    }
+
+    @media (max-width: 850px){
         width: 50%;
     }
 
-    @media (max-width: 480px) {
-        width: 95%;
+    @media (max-width: 600px) {
+        width: 90%;
     }
 }
 
@@ -56,7 +60,8 @@
 }
 
 .slider {
-    width: 100%;
+    width: 90%;
+    padding-left: 10%;
 }
 
 .slider::-webkit-slider-thumb {
@@ -82,22 +87,20 @@
     margin: 10px 0px 20px 0px;
     position: relative;
     &::before{
-        content: "";
-        background-image: url('./../../dev/images/002-sun.svg');
-        height: 20px;
-        width: 20px;
+        content: url('./../../dev/images/002-sun.svg');
+        width: 23px;
         position: absolute;
-        left: 0px;
-        top: 20px;  
+        left: -2px;
+        top: 0;
+        opacity: 0.5; 
     } 
     &::after{
-        content: "";
-        background-image: url('./../../dev/images/002-sun.svg');
-        height: 20px;
-        width: 20px;
+        content: url('./../../dev/images/002-sun-fill.svg');
+        width: 23px;
         position: absolute;
-        right: 0px;
-        top: 20px;
+        right: -2px;
+        top: 0;
+        opacity: 0.5;
         @media (max-width: 480px) {
             right:0;
         }
@@ -108,25 +111,24 @@
     margin: 30px 0px 20px 0px;
     position: relative;
     &::before{
-        content: "";
-        background-image: url('./../../dev/images/001-drop.svg');
-        height: 18px;
-        width: 18px;
+        content: url('./../../dev/images/001-drop.svg');
+        width: 15px;
         position: absolute;
-        left: 0px;
-        top: 20px;  
+        opacity: 0.5;
+        left: 0;
+        top: 0;  
     } 
     &::after{
-        content: "";
-        background-image: url('./../../dev/images/001-drop.svg');
-        height: 18px;
-        width: 18px;
+        content: url('./../../dev/images/001-drop-fill.svg');
+        width: 15px;
         position: absolute;
-        right: 0px;
-        top: 20px;
-        @media (max-width: 480px) {
-            right:0;
-        }
+        right: 0;
+        top: 0;
+        opacity: 0.5;
+
+        // @media (max-width: 480px) {
+        //     right:0;
+        // }
     }
 }
 
@@ -155,7 +157,7 @@
 //     }
 // }
 
-.fbSave {
+.btn {
     margin-top: 10px;
     padding: 10px 5px;
     width: 50%;
@@ -167,7 +169,7 @@
     letter-spacing: 5px;
 }
 
-.fbSave:hover {
+.btn:hover {
         background-color: white;
         color: $primary;
         border: 2px solid $primary;

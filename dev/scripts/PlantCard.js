@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export default class PlantCard extends React.Component {
     constructor(props) {
         super(props);
@@ -84,7 +85,7 @@ export default class PlantCard extends React.Component {
                             </button>
                         </div> */}
 
-                        <input className="fbSave" type="submit" value="Save" />
+                        <input className="fbSave btn" type="submit" value="Save" />
         
                     </form>
                 </div>
