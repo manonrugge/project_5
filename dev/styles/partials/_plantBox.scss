@@ -91,7 +91,7 @@
     margin: 10px 0px 20px 0px;
     position: relative;
     &::before{
-        content: url('./../../dev/images/002-sun.svg');
+        content: url('./../../public/images/002-sun.svg');
         width: 23px;
         position: absolute;
         left: -2px;
@@ -99,7 +99,7 @@
         opacity: 0.5; 
     } 
     &::after{
-        content: url('./../../dev/images/002-sun-fill.svg');
+        content: url('./../../public/images/002-sun-fill.svg');
         width: 23px;
         position: absolute;
         right: -2px;
@@ -115,7 +115,7 @@
     margin: 30px 0px 20px 0px;
     position: relative;
     &::before{
-        content: url('./../../dev/images/001-drop.svg');
+        content: url('./../../public/images/001-drop.svg');
         width: 15px;
         position: absolute;
         opacity: 0.5;
@@ -123,7 +123,7 @@
         top: 0;  
     } 
     &::after{
-        content: url('./../../dev/images/001-drop-fill.svg');
+        content: url('./../../public/images/001-drop-fill.svg');
         width: 15px;
         position: absolute;
         right: 0;

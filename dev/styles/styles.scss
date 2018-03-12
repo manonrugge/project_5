@@ -37,7 +37,7 @@ body {
     h1 {
         position: relative;
         &::after {
-        content: url('./../../dev/images/002-plant.svg');
+        content: url('./../../public/images/002-plant.svg');
         width: 25px;
         position: absolute;
         right: -40px;
@@ -63,7 +63,7 @@ body {
 // Welcome PopUp Message
 
 .signin-background {
-    background-image: linear-gradient(rgba(255,255,255,0.7), rgba(1, 22, 50, 0.45)), url("./../../dev/images/popup.jpg");
+    background-image: linear-gradient(rgba(255,255,255,0.7), rgba(1, 22, 50, 0.45)), url("./../../public/images/popup.jpg");
     background-size: cover;
     background-position: center;
     width: 100%;

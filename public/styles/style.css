@@ -206,14 +206,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   margin: 10px 0px 20px 0px;
   position: relative; }
   .range-sunlight::before {
-    content: url("./../../dev/images/002-sun.svg");
+    content: url("./../../public/images/002-sun.svg");
     width: 23px;
     position: absolute;
     left: -2px;
     top: 0;
     opacity: 0.5; }
   .range-sunlight::after {
-    content: url("./../../dev/images/002-sun-fill.svg");
+    content: url("./../../public/images/002-sun-fill.svg");
     width: 23px;
     position: absolute;
     right: -2px;
@@ -227,14 +227,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   margin: 30px 0px 20px 0px;
   position: relative; }
   .range-water::before {
-    content: url("./../../dev/images/001-drop.svg");
+    content: url("./../../public/images/001-drop.svg");
     width: 15px;
     position: absolute;
     opacity: 0.5;
     left: 0;
     top: 0; }
   .range-water::after {
-    content: url("./../../dev/images/001-drop-fill.svg");
+    content: url("./../../public/images/001-drop-fill.svg");
     width: 15px;
     position: absolute;
     right: 0;
@@ -295,7 +295,7 @@ body {
   .mainHeader h1 {
     position: relative; }
     .mainHeader h1::after {
-      content: url("./../../dev/images/002-plant.svg");
+      content: url("./../../public/images/002-plant.svg");
       width: 25px;
       position: absolute;
       right: -40px;
@@ -311,7 +311,7 @@ body {
         border-bottom: 2px solid #66CDAA; }
 
 .signin-background {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(1, 22, 50, 0.45)), url("./../../dev/images/popup.jpg");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(1, 22, 50, 0.45)), url("./../../public/images/popup.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
